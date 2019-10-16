@@ -12,3 +12,6 @@ I need to break this app up into at least two separate components!
 
 #### Here’s my inspiration:
 
+![Preview of the goal of this app - coin toss](docs/coin.gif)
+
+
