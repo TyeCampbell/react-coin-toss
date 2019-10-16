@@ -12,7 +12,3 @@ I need to break this app up into at least two separate components!
 
 #### Here’s my inspiration:
 
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
