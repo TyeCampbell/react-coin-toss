@@ -1,10 +1,11 @@
 import React from 'react';
+import CoinToss from './CoinToss';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
+      <CoinToss/> 
     </div>
   );
 }
