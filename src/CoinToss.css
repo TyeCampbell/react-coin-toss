@@ -1,0 +1,13 @@
+.CoinToss button {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2em;
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: .5em, 1em, .5em, 1em;
+    margin: 1em;
+}
+
+.CoinToss button: :hover {
+    
+}
