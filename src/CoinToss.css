@@ -1,13 +1,15 @@
 .CoinToss button {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 2em;
+    font-size: 1em;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     background-color: lightgray;
-    padding: .5em, 1em, .5em, 1em;
-    margin: 1em;
+    padding: .25em 1em .25em 1em;
+    margin: .25em;
 }
 
-.CoinToss button: :hover {
-    
+.CoinToss button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
