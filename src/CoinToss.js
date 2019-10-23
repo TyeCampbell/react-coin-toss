@@ -37,21 +37,28 @@ class CoinToss extends Component {
 
         console.log(face);
 
-        if (face === heads) {
-            this.setState({
-                frontFace: this.props.coinFace[0],
-                backFace: this.props.coinFace[1],
-                heads: this.state.heads += 1,
-                flips: this.state.flips += 1,
-            })
-        } else if (face === tails) {
-            this.setState({
-                frontFace: this.props.coinFace[1],
-                backFace: this.props.coinFace[0],
-                heads: this.state.tails += 1,
-                flips: this.state.flips += 1,
-            })
-        }
+        setTimeout(()=>{
+            if (face === heads) {
+                this.setState({
+                    frontFace: this.props.coinFace[0],
+                    backFace: this.props.coinFace[1],
+                    heads: this.state.heads += 1,
+                    flips: this.state.flips += 1,
+                })
+            } else if (face === tails) {
+                this.setState({
+                    frontFace: this.props.coinFace[1],
+                    backFace: this.props.coinFace[0],
+                    heads: this.state.tails += 1,
+                    flips: this.state.flips += 1,
+                })
+            }
+        },100)
+
+        setTimeout(()=> {
+            this.setState({flipAnimaiton: false});
+        }, 1000);
+
     }
 
     reset() {
@@ -63,12 +70,18 @@ class CoinToss extends Component {
     }
         
     render() {
-            
+          
+        let flipCoinInner = 'flip-coin-inner';
+
+        if (this.state.flipAnimaiton === true) {
+            flipCoinInner += ' flip-animation'
+        }
+
         return (    
             <div className="CoinToss">
                 <h1>Coin Toss</h1>
                 <div className='flip-coin'>
-                    <div className={`flip-coin-inner ${this.state.flipAnimation === true ? 'flip-animation' : ''}`}>
+                    <div className={flipCoinInner}>
                         <div className='flip-coin-front'>
                             <Coin face={this.state.frontFace} /> 
                         </div>
