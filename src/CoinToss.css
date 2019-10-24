@@ -37,7 +37,7 @@
 
 .flip-animation {
     transform: rotateX(720deg);
-    transition: transform 1.0s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
   }
   

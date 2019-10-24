@@ -33,19 +33,19 @@ class CoinToss extends Component {
         
         this.setState({flipAnimaiton: true});
 
-        const face = this.randomCoinFace();
+        const changeFace = this.randomCoinFace();
 
-        console.log(face);
+        console.log(changeFace);
 
         setTimeout(()=>{
-            if (face === heads) {
+            if (changeFace === heads) {
                 this.setState({
                     frontFace: this.props.coinFace[0],
                     backFace: this.props.coinFace[1],
                     heads: this.state.heads += 1,
                     flips: this.state.flips += 1,
                 })
-            } else if (face === tails) {
+            } else if (changeFace === tails) {
                 this.setState({
                     frontFace: this.props.coinFace[1],
                     backFace: this.props.coinFace[0],
@@ -57,7 +57,7 @@ class CoinToss extends Component {
 
         setTimeout(()=> {
             this.setState({flipAnimaiton: false});
-        }, 1000);
+        }, 500);
 
     }
 
@@ -90,7 +90,9 @@ class CoinToss extends Component {
                         </div>
                     </div>
                 </div>
-                <button onClick={this.toss}>Toss it!</button>
+                <button disabled={this.state.flipAnimaiton} onClick={this.toss}>
+                    {this.state.flipAnimaiton === false ? 'Toss it!' : 'Flipping...'}
+                </button>
                 <button onClick={this.reset}>Reset</button>
                 <p>Out of {this.state.flips}, there has been {this.state.heads} heads and {this.state.tails} tails.</p>
             </div>
