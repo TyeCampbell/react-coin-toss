@@ -40,16 +40,7 @@
     transition: transform 0.5s;
     transform-style: preserve-3d;
   }
-  
-/* @keyframes flip {
-    from {transform: rotateX(0deg);}
-    to {transform: rotateX(360deg);}
 
-} */
-
-   /* .flip-coin:hover .flip-coin-inner {
-    transform: rotateX(720deg);
-  }  */
   
   .flip-coin-front, .flip-coin-back {
     position: absolute;

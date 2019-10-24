@@ -53,7 +53,7 @@ class CoinToss extends Component {
                     flips: this.state.flips += 1,
                 })
             }
-        },100)
+        },50)
 
         setTimeout(()=> {
             this.setState({flipAnimaiton: false});
