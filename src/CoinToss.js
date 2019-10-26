@@ -31,18 +31,16 @@ class CoinToss extends Component {
         
         const face = this.randomCoinFace();
 
-        console.log(face);
-
         this.setState({
-            face: face,
-            flips: this.state.flips += 1,
+            face: face
         })
 
-        if (face == heads) {
-            this.setState({heads: this.state.heads += 1})
-        } else if (face == tails) {
-            this.setState({tails: this.state.tails += 1})
-        }
+        this.setState(st => ({
+            flips: st.flips + 1,
+            heads: face === heads ? st.heads + 1 : st.heads + 0,
+            tails: face === tails ? st.tails + 1 : st.tails + 0,
+        }))
+        
     }
 
     reset() {
