@@ -13,7 +13,9 @@ class CoinToss extends Component {
     constructor(props){
         super(props);
         this.state = {
-            face: this.randomCoinFace(),
+            flipAnimaiton: false,
+            frontFace: this.randomCoinFace(),
+            backFace: this.randomCoinFace(),
             flips: 0, 
             heads: 0,
             tails: 0,
@@ -29,18 +31,26 @@ class CoinToss extends Component {
 
     toss() {
         
-        const face = this.randomCoinFace();
+        this.setState({flipAnimaiton: true});
 
-        this.setState({
-            face: face
-        })
+        const changeFace = this.randomCoinFace();
 
-        this.setState(st => ({
-            flips: st.flips + 1,
-            heads: face === heads ? st.heads + 1 : st.heads + 0,
-            tails: face === tails ? st.tails + 1 : st.tails + 0,
-        }))
-        
+        console.log(changeFace);
+
+        setTimeout(()=>{
+            this.setState(st=> ({
+                frontFace: changeFace === heads ? this.props.coinFace[0] : this.props.coinFace[1], 
+                backFace: changeFace === heads ? this.props.coinFace[1] : this.props.coinFace[0], 
+                heads: changeFace === heads ? st.heads + 1 : st.heads + 0, 
+                tails: changeFace === tails ? st.tails + 1 : st.tails + 0, 
+                flips: st.flips + 1, 
+            }))
+        }, 50)
+
+        setTimeout(()=> {
+            this.setState({flipAnimaiton: false});
+        }, 500);
+
     }
 
     reset() {
@@ -52,14 +62,29 @@ class CoinToss extends Component {
     }
         
     render() {
-            
+          
+        let flipCoinInner = 'flip-coin-inner';
+
+        if (this.state.flipAnimaiton === true) {
+            flipCoinInner += ' flip-animation'
+        }
+
         return (    
             <div className="CoinToss">
                 <h1>Coin Toss</h1>
-                <div>
-                   <Coin face={this.state.face} /> 
+                <div className='flip-coin'>
+                    <div className={flipCoinInner}>
+                        <div className='flip-coin-front'>
+                            <Coin face={this.state.frontFace} /> 
+                        </div>
+                        <div className='flip-coin-back'>
+                            <Coin face={this.state.backFace} /> 
+                        </div>
+                    </div>
                 </div>
-                <button onClick={this.toss}>Toss it!</button>
+                <button disabled={this.state.flipAnimaiton} onClick={this.toss}>
+                    {this.state.flipAnimaiton === false ? 'Toss it!' : 'Flipping...'}
+                </button>
                 <button onClick={this.reset}>Reset</button>
                 <p>Out of {this.state.flips}, there has been {this.state.heads} heads and {this.state.tails} tails.</p>
             </div>
