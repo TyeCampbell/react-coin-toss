@@ -38,22 +38,14 @@ class CoinToss extends Component {
         console.log(changeFace);
 
         setTimeout(()=>{
-            if (changeFace === heads) {
-                this.setState({
-                    frontFace: this.props.coinFace[0],
-                    backFace: this.props.coinFace[1],
-                    heads: this.state.heads += 1,
-                    flips: this.state.flips += 1,
-                })
-            } else if (changeFace === tails) {
-                this.setState({
-                    frontFace: this.props.coinFace[1],
-                    backFace: this.props.coinFace[0],
-                    heads: this.state.tails += 1,
-                    flips: this.state.flips += 1,
-                })
-            }
-        },50)
+            this.setState(st=> ({
+                frontFace: changeFace === heads ? this.props.coinFace[0] : this.props.coinFace[1], 
+                backFace: changeFace === heads ? this.props.coinFace[1] : this.props.coinFace[0], 
+                heads: changeFace === heads ? st.heads + 1 : st.heads + 0, 
+                tails: changeFace === tails ? st.tails + 1 : st.tails + 0, 
+                flips: st.flips + 1, 
+            }))
+        }, 50)
 
         setTimeout(()=> {
             this.setState({flipAnimaiton: false});
