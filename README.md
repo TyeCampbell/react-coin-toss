@@ -24,4 +24,4 @@ This project uses React, JSX and CSS. It is built with only two React components
 ![Preview of the final outcome - coin toss](docs/cointoss.gif)
 
 
-:thumbsup: *Thanks for checking out my work on GitHub! For more about me find me on Twitter @TyeDev or vist my personal website at www.TyeCampbell.com.*
+:thumbsup: *Thanks for checking out my work on GitHub! For more about me find me on Twitter [@TyeDev](https://twitter.com/tyedev) or vist my personal website [TyeCampbell.com](www.TyeCampbell.com).*
